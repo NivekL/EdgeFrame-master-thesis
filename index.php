@@ -54,6 +54,7 @@
   </textarea>
 
 </div>
+<div class="wrapper">
 
 <header id="top-div" class="col-xs-12 col-md-12 top-col">
 
@@ -66,7 +67,7 @@
 <footer id="bottom-div" class="col-xs-12 col-md-12 bottom-col">
 
 </footer>
-
+</div>
 
 <!--<footer class="col-xs-12 col-md-12 bottom-nav">
 </footer>-->
