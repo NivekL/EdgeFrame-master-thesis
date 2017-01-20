@@ -55,7 +55,37 @@ nav {
           margin-bottom: 10px;
           font-size: 17px;
           font-family: $abel;
+          color: white;
           padding: 6px 20px;
+
+        }
+
+        .save{
+          box-shadow: 0 5px #80c29c;
+
+          &:hover{
+            background-color: #ace4c4;
+          }
+
+          &:active{
+            top: 2px;
+            box-shadow: 0 0;
+            background-color: #2bbe73
+          }
+        }
+
+        .edit{
+          box-shadow: 0 5px rgb(199, 167, 141);
+
+          &:hover{
+            background-color: #ec9f8b;
+          }
+
+          &:active{
+            top: 2px;
+            box-shadow: 0 0;
+            background-color: #d54823;
+          }
         }
     }
 }

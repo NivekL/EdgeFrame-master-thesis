@@ -38,8 +38,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><button id="saveBtn" class="default-btn btn" value="Saved">Save</button></li>
-        <li><button id="editBtn" class="default-btn btn">Edit</button></li>
+        <li><button id="saveBtn" class="default-btn btn save" value="Saved">Save</button></li>
+        <li><button id="editBtn" class="default-btn btn edit">Edit</button></li>
         <li><a href="#">Login</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
