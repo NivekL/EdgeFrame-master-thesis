@@ -1,0 +1,1 @@
+.outer-box{width:auto;border:2px solid black;display:inline-block}.outer-box .inner-box1,.outer-box .inner-box2,.outer-box .inner-box3{width:auto;margin:15px;border:1px solid black}.outer-box2{border:2px solid black;width:600px;height:800px;display:inline-block}

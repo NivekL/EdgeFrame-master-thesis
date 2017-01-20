@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+#div1, #div2, #div3 {
+    width: 450px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+
+.draggable {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    float:left;
+}
+</style>
+<script>
+
+window.addEventListener("load", function() {
+
+document.getElementById("saveButton").addEventListener("click", saveHandler);
+
+});
+
+function saveHandler(event) {
+
+
+    var allDroppedElems = document.getElementsByClassName("dropped");
+
+
+    console.log(allDroppedElems);
+
+var toBeJSON = [];
+
+    for (var i = 0; i < allDroppedElems.length; i++) {
+
+        toBeJSON.push([allDroppedElems[i].id, allDroppedElems[i].value]);
+
+        console.log("Elementet " + allDroppedElems[i].id + " innehåller: " + allDroppedElems[i].value);
+
+    }
+
+    var jsonData = JSON.stringify(toBeJSON);
+
+    sendData(jsonData);
+
+
+
+
+
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+   // console.log(ev);
+   ev.target.style.border = "1px solid red";
+}
+
+function resetStyle(ev) {
+    ev.target.style.border = "";
+}
+
+var droppableElement;
+var idIndex = 0;
+
+function drag(ev) {
+    // ev.dataTransfer.setData("text", ev.target.id);
+
+    console.log(ev);
+
+    droppableElement = ev.target.cloneNode();
+    console.log(droppableElement);
+
+    //ev.droppableElement = droppableElement;
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    console.log(ev);
+    var data = ev.dataTransfer.getData("text");
+
+    droppableElement.id = "dropped" + idIndex;
+    droppableElement.classList.add("dropped");
+    idIndex++;
+
+    ev.target.appendChild(droppableElement);
+
+    console.log(ev.target.id);
+}
+
+
+function sendData(JSONdata) {
+    if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+    } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Done!");
+            }
+        };
+        xmlhttp.open("GET","handleJsonData.php?q="+JSONdata,true);
+        xmlhttp.send();
+    }
+
+</script>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="resetStyle(event)"></div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="resetStyle(event)"></div>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="resetStyle(event)"></div>
+
+
+<textarea class="draggable" draggable="true" ondragstart="drag(event)" textarea></textarea>
+
+<button id="saveButton">save</button>
+</body>
+</html>

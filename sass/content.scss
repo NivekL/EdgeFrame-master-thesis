@@ -1,0 +1,34 @@
+body{
+  background-color: rgb(227, 227, 227);
+}
+
+.container{
+  //border: 3px solid black;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  .top-col{
+    border: 1px solid black;
+    //background-color: gray;
+    height: 100px;
+  }
+
+  .left-col{
+    border: 1px solid black;
+    //background-color: blue;
+    height: 700px;
+  }
+
+  .right-col{
+    border: 1px solid black;
+    //background-color: green;
+    height: 700px
+  }
+
+  .bottom-col{
+    border: 1px solid black;
+    //background-color: red;
+    height: 100px;
+  }
+
+}

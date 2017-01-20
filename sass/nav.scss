@@ -1,0 +1,84 @@
+@import "fonts.scss";
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: .2s;
+    padding-top: 60px;
+
+
+      .fa-times {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+      color: rgb(198, 34, 34);
+      cursor: pointer;
+      transition: linear all .3s;
+
+      &:hover{
+        transform: rotate(180deg);
+      }
+    }
+
+}
+
+
+nav {
+
+    li {
+      margin-right: 50px;
+
+        a {
+          margin-top: 10px;
+          margin-bottom: 10px;
+          padding: 6px 20px;
+          font-size: 20px;
+          font-family: $abel;
+        }
+
+        .btn{
+          margin-top: 10px;
+          margin-bottom: 10px;
+          font-size: 17px;
+          font-family: $abel;
+          padding: 6px 20px;
+        }
+    }
+}
+
+.fa-cog {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #a6a6a6;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  box-shadow: 0 3px #404040;
+
+  &:hover{
+    background-color: #707070;
+  }
+
+  &:active{
+    top: 2px;
+    box-shadow: 0 0;
+  }
+}
+
+#move {
+    transition: margin-left .2s;
+}
