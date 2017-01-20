@@ -55,8 +55,6 @@
 
 </div>
 
-<div class="container">
-
 <header id="top-div" class="col-xs-12 col-md-12 top-col">
 
 </header>
@@ -69,10 +67,9 @@
 
 </footer>
 
-</div>
 
-<footer class="col-xs-12 col-md-12 bottom-nav">
-</footer>
+<!--<footer class="col-xs-12 col-md-12 bottom-nav">
+</footer>-->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.js"></script>
