@@ -61,11 +61,7 @@
 
 </header>
 
-<div id="left-div" class="col-xs-12 col-md-6 left-col">
-
-</div>
-
-<div id="right-div" class="col-xs-12 col-md-6 right-col">
+<div id="left-div" class="col-xs-12 col-md-12 left-col">
 
 </div>
 
