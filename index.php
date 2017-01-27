@@ -32,7 +32,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <i id="openbtn" class="fa fa-cog fa-2x" aria-hidden="true"></i>
+      <i id="openbtn" class="fa fa-info fa-2x" aria-hidden="true"></i>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,11 +47,8 @@
 </nav>
 
 <div id="sidepanel" class="sidenav">
-  <i id="closebutton" class="fa fa-times fa-2x" aria-hidden="true"></i>
+  <i id="closebutton" class="fa fa-info fa-2x" aria-hidden="true"></i>
 
-  <div id="textblock" class="draggable">
-  
-  </div>
 
 </div>
 
@@ -73,8 +70,12 @@
 
 </div>
 
-<!--<footer class="col-xs-12 col-md-12 bottom-nav">
-</footer>-->
+<footer class="col-xs-12 col-md-12 bottom-nav">
+  <div id="textblock" class="draggable">
+
+  </div>
+
+</footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.js"></script>
