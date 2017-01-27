@@ -49,24 +49,28 @@
 <div id="sidepanel" class="sidenav">
   <i id="closebutton" class="fa fa-times fa-2x" aria-hidden="true"></i>
 
-  <textarea id="box" class="draggable" draggable="true">
-
-  </textarea>
+  <div id="textblock" class="draggable">
+  
+  </div>
 
 </div>
+
+
+
 <div class="wrapper">
 
-<header id="top-div" class="col-xs-12 col-md-12 top-col">
+  <div id="top-div" class="col-xs-12 col-md-12 top-col">
 
-</header>
+  </div>
 
-<div id="left-div" class="col-xs-12 col-md-12 left-col">
+  <div id="mid-div" class="col-xs-12 col-md-12 mid-col">
 
-</div>
+  </div>
 
-<footer id="bottom-div" class="col-xs-12 col-md-12 bottom-col">
+  <div id="bottom-div" class="col-xs-12 col-md-12 bottom-col">
 
-</footer>
+  </div>
+
 </div>
 
 <!--<footer class="col-xs-12 col-md-12 bottom-nav">
@@ -76,8 +80,8 @@
     <script src="js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <!--<script src="js/jquery-ui.min.js"></script>-->
+    <script src="js/jquery-ui.min.js"></script>
     <script src="js/sidenav.js"></script>
-    <script src="js/dnd.js"></script>
+    <script src="js/dragndrop.js"></script>
   </body>
 </html>
