@@ -35,7 +35,6 @@
 
 }
 
-
 nav {
 
     li {
@@ -47,6 +46,9 @@ nav {
           padding: 6px 20px;
           font-size: 20px;
           font-family: $abel;
+          color: white;
+
+          &:hover{color: white;}
         }
 
         .btn{
@@ -54,7 +56,7 @@ nav {
           margin-bottom: 10px;
           font-size: 17px;
           font-family: $abel;
-          color: white;
+          color: black;
           padding: 6px 20px;
 
         }

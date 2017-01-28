@@ -47,7 +47,7 @@
 </nav>
 
 <div id="sidepanel" class="sidenav">
-  <i id="closebutton" class="fa fa-info fa-2x" aria-hidden="true"></i>
+  <i id="closebutton" class="fa fa-times fa-2x" aria-hidden="true"></i>
 
 
 </div>
@@ -71,9 +71,7 @@
 </div>
 
 <footer class="col-xs-12 col-md-12 bottom-nav">
-  <div id="textblock" class="draggable">
-
-  </div>
+  <textarea id="textblock" class="draggable"></textarea>
 
 </footer>
 
