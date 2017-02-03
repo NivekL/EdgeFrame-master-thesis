@@ -56,15 +56,7 @@
 
 <div class="wrapper">
 
-  <div id="top-div" class="col-xs-12 col-md-12 top-col">
-
-  </div>
-
   <div id="mid-div" class="col-xs-12 col-md-12 mid-col">
-
-  </div>
-
-  <div id="bottom-div" class="col-xs-12 col-md-12 bottom-col">
 
   </div>
 

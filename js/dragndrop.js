@@ -1,35 +1,35 @@
 $( function() {
   $( "#textblock" ).draggable({
     containment: "document",
-    helper: "clone",
-    zIndex:100,
+    stack: '#textblock',
     cancel: '',
-    revert: "invalid"
-  });
+    revert: "invalid",
+    helper: 'clone'
+  }); // draggable function
 
-    $( "#top-div, #mid-div, #bottom-div" ).droppable({
+    $( "#mid-div" ).droppable({
       accept: "#textblock",
       over: function(event, ui){
-        $(this).css("border", "3px dashed black")
-        .css("background-color", "rgba(10, 110, 56, 0.77)");
-      },
+        $(this)
+        .css("border", "3px dashed black")
+        .css("background-color", "rgba(43, 89, 158, 0.77)");
+      }, // over object
       out: function(event, ui){
-        $(this).css("border", "1px solid black")
-        .css("background-color", "rgba(12, 87, 92, 0.77)");
-      },
-      drop: function(event, ui) {
-        var idIndex = 0;
         $(this)
         .css("border", "1px solid black")
-        .css("background-color", "rgba(12, 87, 92, 0.77)")
+        .css("background-color", "#f6f6f6");
+      }, // out object
+      drop: function(event, ui) {
+        containment: "#mid-div",
+        $(this)
+        .css("border", "1px solid black")
+        .css("background-color", "#f6f6f6");
 
         var element = $(ui.draggable).clone();
-        //element.id = "dropped" + idIndex;
-        $(element).addClass("dropped");
-        idIndex++;
         $(this).append(element);
-        $(element).draggable({helper: 'clone'});
+        $(element).draggable({helper: "clone"});
         console.log(event);
     } //drop object
+
   }); // droppable function
 }); //document function
