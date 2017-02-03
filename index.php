@@ -21,7 +21,7 @@
     <![endif]-->
     <script src="https://use.fontawesome.com/3ba87a9b25.js"></script>
   </head>
-  <body id="move">
+  <body>
     <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -63,7 +63,7 @@
 </div>
 
 <footer class="col-xs-12 col-md-12 bottom-nav">
-  <textarea id="textblock" class="draggable"></textarea>
+  <div id="textblock" class="draggable"></div>
 
 </footer>
 

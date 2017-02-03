@@ -1,9 +1,5 @@
 $( function() {
   $( "#textblock" ).draggable({
-    containment: "document",
-    stack: '#textblock',
-    cancel: '',
-    revert: "invalid",
     helper: 'clone'
   }); // draggable function
 
@@ -20,15 +16,14 @@ $( function() {
         .css("background-color", "#f6f6f6");
       }, // out object
       drop: function(event, ui) {
-        containment: "#mid-div",
         $(this)
         .css("border", "1px solid black")
         .css("background-color", "#f6f6f6");
 
         var element = $(ui.draggable).clone();
+        $(ui.draggable).draggable("enable");
         $(this).append(element);
-        $(element).draggable({helper: "clone"});
-        console.log(event);
+        $(element).draggable({helper: 'clone', accept: element});
     } //drop object
 
   }); // droppable function
