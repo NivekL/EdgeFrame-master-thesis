@@ -19,11 +19,13 @@ $( function() {
         $(this)
         .css("border", "1px solid black")
         .css("background-color", "#f6f6f6");
-
+        var idIndex = 0;
         var element = $(ui.draggable).clone();
-        $(ui.draggable).draggable("enable");
+        $(element).attr('id', 'dropped' + idIndex);
+        $(element).addClass("dropped");
+        idIndex++;
         $(this).append(element);
-        $(element).draggable({helper: 'clone', accept: element});
+        $(element).draggable();
     } //drop object
 
   }); // droppable function

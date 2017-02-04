@@ -63,7 +63,7 @@
 </div>
 
 <footer class="col-xs-12 col-md-12 bottom-nav">
-  <div id="textblock" class="draggable"></div>
+  <div id="textblock" class="textblock" draggable="true"></div>
 
 </footer>
 
