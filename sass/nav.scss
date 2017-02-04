@@ -4,35 +4,17 @@
     border-radius: 0;
     border: none;
     background-color: #333;
+    margin-bottom: 0;
+    z-index: 999;
 }
 
 .sidenav {
     height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
+    position: absolute;
     left: 0;
     background-color: #111;
-    overflow-x: hidden;
-    transition: .2s;
-    padding-top: 60px;
-
-
-      .fa-times {
-      position: absolute;
-      top: 10px;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-      color: rgb(198, 34, 34);
-      cursor: pointer;
-      transition: linear all .3s;
-
-      &:hover{
-        transform: rotate(180deg);
-      }
-    }
-
+    overflow-x: visible;
+    padding: 60px 20px;
 }
 
 nav {
@@ -89,33 +71,4 @@ nav {
           }
         }
     }
-}
-
-.fa-info {
-  position: absolute;
-  margin-top: 10px;
-  margin-left: 10px;
-  padding-left: 7px;
-  padding-right: 7px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  background-color: #a6a6a6;
-  border-radius: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  border: 1px solid rgba(0,0,0,0.22);
-  box-shadow: 0 3px #6b6b6b;
-
-  &:hover{
-    background-color: #707070;
-  }
-
-  &:active{
-    top: 2px;
-    box-shadow: 0 0;
-  }
-}
-
-body {
-    transition: margin-left .2s;
 }

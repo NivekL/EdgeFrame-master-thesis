@@ -1,4 +1,7 @@
 $( function() {
+
+
+
   $( "#textblock" ).draggable({
     helper: 'clone'
   }); // draggable function
@@ -23,10 +26,14 @@ $( function() {
         var element = $(ui.draggable).clone();
         $(element).attr('id', 'dropped' + idIndex);
         $(element).addClass("dropped");
-        idIndex++;
+
         $(this).append(element);
+        idIndex++;
         $(element).draggable();
+        $(element).resizable();
+
     } //drop object
 
   }); // droppable function
+
 }); //document function

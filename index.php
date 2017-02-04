@@ -32,7 +32,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <i id="openbtn" class="fa fa-info fa-2x" aria-hidden="true"></i>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,8 +46,8 @@
 </nav>
 
 <div id="sidepanel" class="sidenav">
-  <i id="closebutton" class="fa fa-times fa-2x" aria-hidden="true"></i>
 
+  <div id="textblock" class="textblock" draggable="true"></div>
 
 </div>
 
@@ -63,7 +62,7 @@
 </div>
 
 <footer class="col-xs-12 col-md-12 bottom-nav">
-  <div id="textblock" class="textblock" draggable="true"></div>
+
 
 </footer>
 
@@ -72,7 +71,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/sidenav.js"></script>
+    <!--<script src="js/sidenav.js"></script>-->
     <script src="js/dragndrop.js"></script>
   </body>
 </html>
