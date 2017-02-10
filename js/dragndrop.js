@@ -31,8 +31,10 @@ $( function() {
         i++;
 
         $(this).append(element);
-
-        $(element).draggable();
+      
+        $(element).draggable({
+          containment: 'parent'
+        });
         $(element).resizable();
 
     } //drop object
