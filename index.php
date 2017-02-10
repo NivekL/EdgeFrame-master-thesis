@@ -11,7 +11,7 @@
     <link href="css/jquery-ui.min.css" rel="stylesheet">
     <link href="css/style.min.css" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +39,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><button id="saveBtn" class="default-btn btn save" value="Saved">Save</button></li>
         <li><button id="editBtn" class="default-btn btn edit">Edit</button></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="#" class="pull-right">Login</a></li>
+        <li><a href="#" class="pull-right">About</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -60,11 +61,6 @@
   </div>
 
 </div>
-
-<footer class="col-xs-12 col-md-12 bottom-nav">
-
-
-</footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.js"></script>

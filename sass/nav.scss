@@ -3,7 +3,7 @@
 .navbar{
     border-radius: 0;
     border: none;
-    background-color: #333;
+    background-color: #f7f7f7;
     margin-bottom: 0;
     z-index: 999;
 }
@@ -12,7 +12,8 @@
     height: 100%;
     position: absolute;
     left: 0;
-    background-color: #111;
+    background-color: #ececec;
+    border: 1px solid #cdc8c8;
     overflow-x: visible;
     padding: 60px 20px;
 }
@@ -27,48 +28,43 @@ nav {
           margin-bottom: 10px;
           padding: 6px 20px;
           font-size: 20px;
-          font-family: $abel;
-          color: white;
+          font-family: $nunito;
+          font-weight: 600;
 
-          &:hover{color: white;}
-        }
-
-        .btn{
-          margin-top: 10px;
-          margin-bottom: 10px;
-          font-size: 17px;
-          font-family: $abel;
-          color: black;
-          padding: 6px 20px;
-
-        }
-
-        .save{
-          box-shadow: 0 5px #80c29c;
-
-          &:hover{
-            background-color: #ace4c4;
-          }
-
-          &:active{
-            top: 2px;
-            box-shadow: 0 0;
-            background-color: #2bbe73
-          }
-        }
-
-        .edit{
-          box-shadow: 0 5px rgb(199, 167, 141);
-
-          &:hover{
-            background-color: #ec9f8b;
-          }
-
-          &:active{
-            top: 2px;
-            box-shadow: 0 0;
-            background-color: #d54823;
-          }
+          &:hover{font-weight: 700;}
         }
     }
+}
+
+.btn{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-family: $nunito;
+  font-weight: 600;
+  padding: 6px 20px;
+  color: white;
+
+  &:hover{
+    font-weight: 700;
+    color: white;
+  }
+  &:focus{color: white;}
+}
+.save{
+  background-color: #13ce66;
+  box-shadow: 0 3px #0aa94e;
+
+  &:hover{
+    background-color: #3bc676;
+  }
+}
+
+.edit{
+  box-shadow: 0 3px #184e80;
+  background-color: #3a62a4;
+
+  &:hover{
+    background-color: #285eb7;
+  }
 }
