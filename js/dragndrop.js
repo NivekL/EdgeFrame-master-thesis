@@ -6,6 +6,8 @@ $( function() {
     helper: 'clone'
   }); // draggable function
 
+  var i = 0;
+
     $( "#mid-div" ).droppable({
       accept: "#textblock",
       over: function(event, ui){
@@ -22,13 +24,14 @@ $( function() {
         $(this)
         .css("border", "1px solid #cdc8c8")
         .css("background-color", "#f6f6f6");
-        var idIndex = 0;
-        var element = $(ui.draggable).clone();
-        $(element).attr('id', 'dropped' + idIndex);
+
+        var element = $(ui.helper).clone();
+        $(element).attr('id', 'dropped' + i);
         $(element).addClass("dropped");
+        i++;
 
         $(this).append(element);
-        idIndex++;
+
         $(element).draggable();
         $(element).resizable();
 
