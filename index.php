@@ -37,7 +37,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><button id="saveBtn" class="default-btn btn save" value="Saved">Save</button></li>
+        <li><button id="saveBtn" class="default-btn btn save">Save</button></li>
         <li><button id="editBtn" class="default-btn btn edit">Edit</button></li>
         <li><a href="#" class="pull-right">Login</a></li>
         <li><a href="#" class="pull-right">About</a></li>
@@ -48,7 +48,8 @@
 
 <div id="sidepanel" class="sidenav">
 
-  <div id="textblock" class="textblock" draggable="true"></div>
+  <div id="divBlock" class="divBlock" draggable="true"></div>
+  <p id="text" class="text" draggable="true" contenteditable="true">Sample text</p></div>
 
 </div>
 

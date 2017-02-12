@@ -1,15 +1,13 @@
 $( function() {
 
-
-
-  $( "#textblock" ).draggable({
+  $( "#divBlock, #text" ).draggable({
     helper: 'clone'
   }); // draggable function
 
   var i = 0;
 
     $( "#mid-div" ).droppable({
-      accept: "#textblock",
+      accept: "#divBlock, #text",
       over: function(event, ui){
         $(this)
         .css("border", "2px dashed #5991aa")
@@ -31,7 +29,10 @@ $( function() {
         i++;
 
         $(this).append(element);
-      
+
+        console.log(element);
+        console.log(element.className);
+
         $(element).draggable({
           containment: 'parent'
         });

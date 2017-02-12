@@ -1,6 +1,16 @@
-.textblock{
+.divBlock{
   height: 100px;
   width: 100px;
   background-color: #37abff;
   z-index: 100;
+  margin-bottom: 20px;
+}
+
+.text{
+  border: 1px solid black;
+  font-family: $nunito;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
+  z-index: 300;
 }
