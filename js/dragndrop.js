@@ -1,5 +1,23 @@
 $( function() {
 
+  $("#saveBtn").on('click', function(event) {
+    var allDroppedElems = document.getElementsByClassName('dropped');
+    var toBeJSON = [];
+
+    for (var i = 0; i < allDroppedElems.length; i++) {
+
+        toBeJSON.push([allDroppedElems[i].id, allDroppedElems[i].innerText]);
+
+        console.log("Element: " + allDroppedElems[i].id + " innehåller: " + allDroppedElems[i].innerText);
+
+    }
+
+    var jsonData = JSON.stringify(toBeJSON);
+
+    sendData(jsonData);
+
+  });
+
   $( "#divBlock, #text" ).draggable({
     helper: 'clone'
   }); // draggable function
@@ -31,7 +49,6 @@ $( function() {
         $(this).append(element);
 
         console.log(element);
-        console.log(element.className);
 
         $(element).draggable({
           containment: 'parent'
@@ -41,5 +58,10 @@ $( function() {
     } //drop object
 
   }); // droppable function
+
+  $.post("handleJsonData.php", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+
 
 }); //document function
