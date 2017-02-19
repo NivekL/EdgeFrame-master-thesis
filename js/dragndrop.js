@@ -6,9 +6,9 @@ $( function() {
 
     for (var i = 0; i < allDroppedElems.length; i++) {
 
-        toBeJSON.push([allDroppedElems[i].id, allDroppedElems[i].innerText]);
+        toBeJSON.push([allDroppedElems[i].id, allDroppedElems[i].innerText, allDroppedElems[i].offsetLeft, allDroppedElems[i].offsetTop]);
 
-        console.log("Element: " + allDroppedElems[i].id + " innehåller: " + allDroppedElems[i].innerText);
+        console.log("Element: " + allDroppedElems[i].id + " innehåller: " + allDroppedElems[i].innerText + "x-position " + allDroppedElems[i].offsetLeft + " y-position " + allDroppedElems[i].offsetTop);
 
     }
 

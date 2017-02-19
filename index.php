@@ -1,3 +1,5 @@
+<?php require "dbcon.php" ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -58,6 +60,22 @@
 <div class="wrapper">
 
   <div id="mid-div" class="col-xs-12 col-md-12 mid-col">
+
+  <?php
+
+    $sql = "SELECT * FROM dragndrop.pageitem";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $x = $row['xPos'];
+        $y = $row['yPos'];
+        $id = $row['itemID'];
+
+        echo '<div class="divBlock ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"  style=" left:'.$x.'px; top:'.$y.'px;" draggable="true"></div>';
+    }
+
+  ?>
 
   </div>
 
