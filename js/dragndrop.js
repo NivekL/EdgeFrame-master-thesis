@@ -14,6 +14,7 @@ $( function() {
 
     var jsonData = JSON.stringify(toBeJSON);
 
+
     sendData(jsonData);
 
   });
@@ -59,9 +60,21 @@ $( function() {
 
   }); // droppable function
 
-  $.post("handleJsonData.php", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-    });
-
+  function sendData(JSONdata) {
+      if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+      } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  console.log("Done!");
+              }
+          };
+          xmlhttp.open("GET","handleJsonData.php?q="+JSONdata,true);
+          xmlhttp.send();
+      }
 
 }); //document function
