@@ -1,4 +1,24 @@
-<?php require "dbcon.php" ?>
+<?php
+session_start();
+require_once 'class.user.php';
+$user_login = new USER();
+
+if($user_login->is_logged_in()!="")
+{
+ $user_login->redirect('home.php');
+}
+
+if(isset($_POST['btn-login']))
+{
+ $email = trim($_POST['txtemail']);
+ $upass = trim($_POST['txtupass']);
+
+ if($user_login->login($email,$upass))
+ {
+  $user_login->redirect('home.php');
+ }
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -6,87 +26,52 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Drag n Drop</title>
-
+    <title>Login | Coding Cage</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/jquery-ui.min.css" rel="stylesheet">
-    <link href="css/style.min.css" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.min.css" rel="stylesheet" media="screen">
+     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="https://use.fontawesome.com/3ba87a9b25.js"></script>
   </head>
-  <body>
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><button id="saveBtn" class="default-btn btn save">Save</button></li>
-        <li><button id="editBtn" class="default-btn btn edit">Edit</button></li>
-        <li><a href="#" class="pull-right">Login</a></li>
-        <li><a href="#" class="pull-right">About</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<div id="sidepanel" class="sidenav">
-
-  <div id="divBlock" class="divBlock" draggable="true"></div>
-  <p id="text" class="text" draggable="true" contenteditable="true">Sample text</p></div>
-
-</div>
-
-
-
-<div class="wrapper">
-
-  <div id="mid-div" class="col-xs-12 col-md-12 mid-col">
-
+  <body id="login">
+    <div class="container">
   <?php
-
-    $sql = "SELECT * FROM dragndrop.pageitem";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
-
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $x = $row['xPos'];
-        $y = $row['yPos'];
-        $id = $row['itemID'];
-
-        echo '<div class="divBlock ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"  style=" left:'.$x.'px; top:'.$y.'px;" draggable="true"></div>';
-    }
-
+  if(isset($_GET['inactive']))
+  {
+   ?>
+            <div class='alert alert-error'>
+    <button class='close' data-dismiss='alert'>&times;</button>
+    <strong>Sorry!</strong> This Account is not Activated Go to your Inbox and Activate it.
+   </div>
+            <?php
+  }
   ?>
+        <form class="form-signin" method="post">
+        <?php
+        if(isset($_GET['error']))
+  {
+   ?>
+            <div class='alert alert-success'>
+    <button class='close' data-dismiss='alert'>&times;</button>
+    <strong>Wrong Details!</strong>
+   </div>
+            <?php
+  }
+  ?>
+        <h2 class="form-signin-heading">Sign In.</h2><hr />
+        <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
+        <input type="password" class="input-block-level" placeholder="Password" name="txtupass" required />
+      <hr />
+        <button class="btn btn-large btn-primary" type="submit" name="btn-login">Sign in</button>
+        <a href="signup.php" style="float:right; color:#000;" class="btn btn-large">Sign Up</a><hr />
+        <a href="fpass.php">Lost your Password ? </a>
+      </form>
 
-  </div>
-
-</div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    </div> <!-- /container -->
     <script src="js/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <!--<script src="js/sidenav.js"></script>-->
-    <script src="js/dragndrop.js"></script>
   </body>
 </html>
