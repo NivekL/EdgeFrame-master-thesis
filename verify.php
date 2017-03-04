@@ -30,7 +30,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
    $msg = "
              <div class='alert alert-success'>
        <button class='close' data-dismiss='alert'>&times;</button>
-       <strong>WoW !</strong>  Your Account is Now Activated : <a href='index.php'>Login here</a>
+       <strong>WoW !</strong>  Your account is now activated : <a href='index.php'>Login here</a>
           </div>
           ";
   }
@@ -39,7 +39,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
    $msg = "
              <div class='alert alert-error'>
        <button class='close' data-dismiss='alert'>&times;</button>
-       <strong>sorry !</strong>  Your Account is allready Activated : <a href='index.php'>Login here</a>
+       <strong>sorry !</strong>  Your account is already activated : <a href='index.php'>Login here</a>
           </div>
           ";
   }
@@ -49,7 +49,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
   $msg = "
          <div class='alert alert-error'>
       <button class='close' data-dismiss='alert'>&times;</button>
-      <strong>sorry !</strong>  No Account Found : <a href='signup.php'>Signup here</a>
+      <strong>sorry !</strong>  No account Found : <a href='signup.php'>Signup here</a>
       </div>
       ";
  }
@@ -62,7 +62,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Confirm Registration</title>
+    <title>Confirm Registration | EdgeFrame</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">

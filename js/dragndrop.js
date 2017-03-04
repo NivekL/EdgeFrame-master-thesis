@@ -6,9 +6,9 @@ $( function() {
 
     for (var i = 0; i < allDroppedElems.length; i++) {
 
-        toBeJSON.push([allDroppedElems[i].id, allDroppedElems[i].innerText, allDroppedElems[i].offsetLeft, allDroppedElems[i].offsetTop]);
+        toBeJSON.push([allDroppedElems[i].id, allDroppedElems[i].innerText, allDroppedElems[i].offsetLeft, allDroppedElems[i].offsetTop, allDroppedElems[i].offsetHeight, allDroppedElems[i].offsetWidth]);
 
-        console.log("Element: " + allDroppedElems[i].id + " innehåller: " + allDroppedElems[i].innerText + "x-position " + allDroppedElems[i].offsetLeft + " y-position " + allDroppedElems[i].offsetTop);
+        console.log("Element: " + allDroppedElems[i].id + " innehåller: " + allDroppedElems[i].innerText + "x-position: " + allDroppedElems[i].offsetLeft + " y-position: " + allDroppedElems[i].offsetTop + " längd: " + allDroppedElems[i].offsetHeight + " bredd: " + allDroppedElems[i].offsetWidth);
 
     }
 
@@ -70,7 +70,8 @@ $( function() {
       }
           xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
-                  console.log("Done!");
+                  document.getElementById("saveCall").innerHTML = "Saved!";
+                  setTimeout(function(){ $('#saveCall').fadeOut(1000); }, 2000);
               }
           };
           xmlhttp.open("GET","handleJsonData.php?q="+JSONdata,true);

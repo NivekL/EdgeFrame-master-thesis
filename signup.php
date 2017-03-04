@@ -26,7 +26,7 @@ if(isset($_POST['btn-signup']))
   $msg = "
         <div class='alert alert-error'>
     <button class='close' data-dismiss='alert'>&times;</button>
-     <strong>Sorry !</strong>  email allready exists , Please Try another one
+     <strong>Sorry !</strong>  Email already exists, please try another one
      </div>
      ";
  }
@@ -41,7 +41,7 @@ if(isset($_POST['btn-signup']))
    $message = "
       Hello $uname,
       <br /><br />
-      To complete your registration  please , just click following link<br/>
+      To complete your registration please, just click the following link<br/>
       <br /><br />
       <a href='http://localhost/DragnDrop/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
       <br /><br />
@@ -60,7 +60,7 @@ if(isset($_POST['btn-signup']))
   }
   else
   {
-   echo "sorry , Query could no execute...";
+   echo "sorry , Query could not execute...";
   }
  }
 }
@@ -71,7 +71,7 @@ if(isset($_POST['btn-signup']))
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Signup | Coding Cage</title>
+    <title>Signup | EdgeFrame</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">

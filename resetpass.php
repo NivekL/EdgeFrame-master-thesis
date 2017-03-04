@@ -4,49 +4,54 @@ $user = new USER();
 
 if(empty($_GET['id']) && empty($_GET['code']))
 {
- $user->redirect('index.php');
+	$user->redirect('index.php');
 }
 
 if(isset($_GET['id']) && isset($_GET['code']))
 {
- $id = base64_decode($_GET['id']);
- $code = $_GET['code'];
+	$id = base64_decode($_GET['id']);
+	$code = $_GET['code'];
 
- $stmt = $user->runQuery("SELECT * FROM tbl_users WHERE userID=:uid AND tokenCode=:token");
- $stmt->execute(array(":uid"=>$id,":token"=>$code));
- $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+	$stmt = $user->runQuery("SELECT * FROM tbl_users WHERE userID=:uid AND tokenCode=:token");
+	$stmt->execute(array(":uid"=>$id,":token"=>$code));
+	$rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
- if($stmt->rowCount() == 1)
- {
-  if(isset($_POST['btn-reset-pass']))
-  {
-   $pass = $_POST['pass'];
-   $cpass = $_POST['confirm-pass'];
+	if($stmt->rowCount() == 1)
+	{
+		if(isset($_POST['btn-reset-pass']))
+		{
+			$pass = $_POST['pass'];
+			$cpass = $_POST['confirm-pass'];
 
-   if($cpass!==$pass)
-   {
-    $msg = "<div class='alert alert-block'>
-      <button class='close' data-dismiss='alert'>&times;</button>
-      <strong>Sorry!</strong>  Password Doesn't match.
-      </div>";
-   }
-   else
-   {
-    $stmt = $user->runQuery("UPDATE tbl_users SET userPass=:upass WHERE userID=:uid");
-    $stmt->execute(array(":upass"=>$cpass,":uid"=>$rows['userID']));
+			if($cpass!==$pass)
+			{
+				$msg = "<div class='alert alert-block'>
+						<button class='close' data-dismiss='alert'>&times;</button>
+						<strong>Sorry!</strong>  Password Doesn't match.
+						</div>";
+			}
+			else
+			{
+				$password = md5($cpass);
+				$stmt = $user->runQuery("UPDATE tbl_users SET userPass=:upass WHERE userID=:uid");
+				$stmt->execute(array(":upass"=>$password,":uid"=>$rows['userID']));
 
-    $msg = "<div class='alert alert-success'>
-      <button class='close' data-dismiss='alert'>&times;</button>
-      Password Changed.
-      </div>";
-    header("refresh:5;index.php");
-   }
-  }
- }
- else
- {
-  exit;
- }
+				$msg = "<div class='alert alert-success'>
+						<button class='close' data-dismiss='alert'>&times;</button>
+						Password Changed. Wait here and you will be redirected!
+						</div>";
+				header("refresh:5;index.php");
+			}
+		}
+	}
+	else
+	{
+		$msg = "<div class='alert alert-success'>
+				<button class='close' data-dismiss='alert'>&times;</button>
+				No Account Found, Try again
+				</div>";
+
+	}
 
 
 }
@@ -58,7 +63,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Password Reset</title>
+    <title>Password Reset | EdgeFrame</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">

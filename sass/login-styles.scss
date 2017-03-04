@@ -1,9 +1,6 @@
 /** Home Page **/
 body {
-	padding-top: 60px;
-	padding-bottom: 40px;
-	background-color: #f5f5f5;
-	background:#0ca2d1;
+	background-color: #0ca2d1;
 }
 
 /** Login Page **/
@@ -36,38 +33,6 @@ body {
     height: auto;
     margin-bottom: 15px;
     padding: 7px 9px;
-}
-
-/** 2 level sub menu **/
-.dropdown-menu-with-subs .sub-menu {
-  left: 100%;
-  position: absolute;
-  top: 0;
-  visibility: hidden;
-  margin-top: -1px;
-}
-
-.dropdown-menu-with-subs li:hover .sub-menu {
-  visibility: visible;
-  display: block;
-}
-
-.navbar .sub-menu:before {
-  border-bottom: 7px solid transparent;
-  border-left: none;
-  border-right: 7px solid rgba(0, 0, 0, 0.2);
-  border-top: 7px solid transparent;
-  left: -7px;
-  top: 10px;
-}
-.navbar .sub-menu:after {
-  border-top: 6px solid transparent;
-  border-left: none;
-  border-right: 6px solid #fff;
-  border-bottom: 6px solid transparent;
-  left: 10px;
-  top: 11px;
-  left: -6px;
 }
 
 /** Global **/

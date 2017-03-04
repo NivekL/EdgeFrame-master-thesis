@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'class.user.php';
+require 'dbcon.php';
 $user_home = new USER();
 
 if(!$user_home->is_logged_in())
@@ -53,6 +54,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li id="saveCall"></li>
         <li><button id="saveBtn" class="default-btn btn save">Save</button></li>
         <li><button id="editBtn" class="default-btn btn edit">Edit</button></li>
         <li><a href="#" class="pull-right">About</a></li>
@@ -84,9 +86,12 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $x = $row['xPos'];
         $y = $row['yPos'];
+        $height = $row['itemHeight'];
+        $width = $row['itemWidth'];
         $id = $row['itemID'];
 
-        echo '<div class="divBlock ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"  style=" left:'.$x.'px; top:'.$y.'px;" draggable="true"></div>';
+        echo '<div id="'.$id.'" class="divBlock ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"  style=" left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
+        draggable="true"></div>';
     }
 
   ?>
@@ -100,7 +105,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/scripts.js"></script>
     <script src="js/dragndrop.js"></script>
   </body>
 </html>

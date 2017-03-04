@@ -60,7 +60,7 @@ if(isset($_POST['btn-submit']))
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Forgot Password</title>
+    <title>Forgot Password | EdgeFrame</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
@@ -85,7 +85,7 @@ if(isset($_POST['btn-submit']))
    {
     ?>
                <div class='alert alert-info'>
-    Please enter your email address. You will receive a link to create a new password via email.!
+    Please enter your email address. You will receive a link to create a new password via email!
     </div>
                 <?php
    }
