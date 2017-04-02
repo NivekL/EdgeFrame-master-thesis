@@ -120,8 +120,8 @@ class USER
   $mail->AddAddress($email);
   $mail->Username="leskinen43@gmail.com";
   $mail->Password="LevLek9495";
-  $mail->SetFrom('leskinen43@gmail.com','Coding Cage');
-  $mail->AddReplyTo("leskinen43@gmail.com","Coding Cage");
+  $mail->SetFrom('leskinen43@gmail.com','EdgeFrame');
+  $mail->AddReplyTo("leskinen43@gmail.com","EdgeFrame");
   $mail->Subject    = $subject;
   $mail->MsgHTML($message);
   $mail->Send();

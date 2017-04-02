@@ -30,7 +30,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
    $msg = "
              <div class='alert alert-success'>
        <button class='close' data-dismiss='alert'>&times;</button>
-       <strong>WoW !</strong>  Your account is now activated : <a href='index.php'>Login here</a>
+       <strong>WoW !</strong>  Your account is now activated, follow the link: <a href='index.php'>Login here</a>
           </div>
           ";
   }
@@ -39,7 +39,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
    $msg = "
              <div class='alert alert-error'>
        <button class='close' data-dismiss='alert'>&times;</button>
-       <strong>sorry !</strong>  Your account is already activated : <a href='index.php'>Login here</a>
+       <strong>sorry !</strong>  Your account is already activated follow the link: <a href='index.php'>Login here</a>
           </div>
           ";
   }
@@ -49,7 +49,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
   $msg = "
          <div class='alert alert-error'>
       <button class='close' data-dismiss='alert'>&times;</button>
-      <strong>sorry !</strong>  No account Found : <a href='signup.php'>Signup here</a>
+      <strong>sorry !</strong>  No account Found follow the link: <a href='signup.php'>Signup here</a>
       </div>
       ";
  }

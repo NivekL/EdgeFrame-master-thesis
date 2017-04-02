@@ -16,15 +16,17 @@ $( function() {
 
 
     sendData(jsonData);
-
   });
+
+
+
+
 
   $( "#divBlock, #text" ).draggable({
     helper: 'clone'
   }); // draggable function
 
   var i = 0;
-
     $( "#mid-div" ).droppable({
       accept: "#divBlock, #text",
       over: function(event, ui){
@@ -51,14 +53,15 @@ $( function() {
 
         console.log(element);
 
-        $(element).draggable({
-          containment: 'parent'
-        });
+        $(".dropped").draggable();
         $(element).resizable();
 
     } //drop object
 
   }); // droppable function
+
+
+
 
   function sendData(JSONdata) {
       if (window.XMLHttpRequest) {

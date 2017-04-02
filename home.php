@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'class.user.php';
-require 'dbcon.php';
+//require 'dbcon.php';
 $user_home = new USER();
 
 if(!$user_home->is_logged_in())
@@ -27,7 +27,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/jquery-ui.min.css" rel="stylesheet" media="screen">
     <link href="css/style.min.css" rel="stylesheet" media="screen">
-
+    <link rel="icon" href="images/favicon.png" type="image/png" style="width: 16px; height: 16px;">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -39,9 +39,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <script src="https://use.fontawesome.com/3ba87a9b25.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
+    <img src="images/EdgeFrame-logo.png" alt="EdgeFrame logo" class="pull-left logo">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -56,8 +57,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
       <ul class="nav navbar-nav navbar-right">
         <li id="saveCall"></li>
         <li><button id="saveBtn" class="default-btn btn save">Save</button></li>
-        <li><button id="editBtn" class="default-btn btn edit">Edit</button></li>
-        <li><a href="#" class="pull-right">About</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#myModal">About</a></li>
         <li><a tabindex="-1" href="logout.php">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -71,13 +71,34 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 </div>
 
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
 
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
 <div class="wrapper">
 
   <div id="mid-div" class="col-xs-12 col-md-12 mid-col">
 
-  <?php
+ <!--
 
     $sql = "SELECT * FROM dragndrop.pageitem";
     $stmt = $dbh->prepare($sql);
@@ -92,9 +113,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         echo '<div id="'.$id.'" class="divBlock ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"  style=" left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
         draggable="true"></div>';
-    }
+    }-->
 
-  ?>
 
   </div>
 

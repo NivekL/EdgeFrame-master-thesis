@@ -18,7 +18,16 @@
     padding: 60px 20px;
 }
 
+.logo{
+  width: 200px;
+  margin: 15px 0;
+}
+
 nav {
+
+  ul.navbar-right{
+    margin: 15px 0;
+  }
 
     li {
       margin-right: 50px;
@@ -52,7 +61,6 @@ nav {
   font-family: $nunito;
   font-weight: 600;
   padding: 6px 20px;
-  color: white;
 
   &:hover{
     font-weight: 700;
@@ -62,18 +70,10 @@ nav {
 }
 .save{
   background-color: #13ce66;
+  color: white;
   box-shadow: 0 3px #0aa94e;
 
   &:hover{
     background-color: #3bc676;
-  }
-}
-
-.edit{
-  box-shadow: 0 3px #184e80;
-  background-color: #3a62a4;
-
-  &:hover{
-    background-color: #285eb7;
   }
 }

@@ -41,9 +41,9 @@ if(isset($_POST['btn-signup']))
    $message = "
       Hello $uname,
       <br /><br />
-      To complete your registration please, just click the following link<br/>
+      To complete your registration please click the following link<br/>
       <br /><br />
-      <a href='http://localhost/DragnDrop/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+      <a href='http://localhost/DragnDrop/verify.php?id=$id&code=$code'>Click here to activate :)</a>
       <br /><br />
       Thanks,";
 

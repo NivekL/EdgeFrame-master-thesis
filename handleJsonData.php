@@ -5,7 +5,9 @@ require "dbcon.php";
 $dataFromJSON = json_decode($_GET['q']);
 //file_put_contents("log2.txt", print_r($dataFromJSON, true));
 
-$sql = "INSERT INTO `dragndrop`.`pageitem` (`itemID`, `itemdata`, `xPos`, `yPos`, `itemHeight`, `itemWidth`) VALUES (:id, :content, :xpos, :ypos, :height, :width)";
+$sql = "INSERT INTO `dragndrop`.`pageitem` (`itemID`, `itemdata`, `xPos`, `yPos`, `itemHeight`, `itemWidth`)
+VALUES (:id, :content, :xpos, :ypos, :height, :width)
+ON DUPLICATE KEY UPDATE (`itemID` = `itemID` + 1)";
 $stmt = $dbh->prepare($sql);
 
 foreach ($dataFromJSON as $element) {
