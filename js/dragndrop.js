@@ -26,7 +26,15 @@ $( function() {
     helper: 'clone'
   }); // draggable function
 
-  var i = 0;
+
+// i ska vara lika med siffran från lastID!
+
+//  var i = 0;
+
+var i = lastID.substring(7,9);
+i++;
+
+
     $( "#mid-div" ).droppable({
       accept: "#divBlock, #text",
       over: function(event, ui){
@@ -53,7 +61,7 @@ $( function() {
 
         console.log(element);
 
-        $(".dropped").draggable();
+        $(element).draggable();
         $(element).resizable();
 
     } //drop object
@@ -82,3 +90,6 @@ $( function() {
       }
 
 }); //document function
+
+$(".dropped").draggable();
+$(".dropped").resizable();

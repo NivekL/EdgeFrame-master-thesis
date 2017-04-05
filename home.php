@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'class.user.php';
-//require 'dbcon.php';
+require 'dbcon.php';
 $user_home = new USER();
 
 if(!$user_home->is_logged_in())
@@ -12,6 +12,13 @@ if(!$user_home->is_logged_in())
 $stmt = $user_home->runQuery("SELECT * FROM tbl_users WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+
+// hämta senaste ID from DB och spara i JS varaiabel (längre ner)
+$sql = "SELECT itemID from pageitem order by itemID DESC";
+$stmt = $dbh->query($sql);
+$lastID = $stmt->fetchColumn();
 
 ?>
 
@@ -37,6 +44,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://use.fontawesome.com/3ba87a9b25.js"></script>
+    <script>
+
+    <?php echo 'var lastID = "'.$lastID.'";'; ?>
+
+    </script>
   </head>
   <body>
   <nav class="navbar navbar-default">
@@ -67,7 +79,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <div id="sidepanel" class="sidenav">
 
   <div id="divBlock" class="divBlock" draggable="true"></div>
-  <p id="text" class="text" draggable="true" contenteditable="true">Sample text</p></div>
+  <p id="text" class="text" draggable="true" contenteditable="true">Sample text</p>
 
 </div>
 
@@ -98,9 +110,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
   <div id="mid-div" class="col-xs-12 col-md-12 mid-col">
 
- <!--
 
-    $sql = "SELECT * FROM dragndrop.pageitem";
+
+  <?php  $sql = "SELECT * FROM dragndrop.pageitem";
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
@@ -110,10 +122,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $height = $row['itemHeight'];
         $width = $row['itemWidth'];
         $id = $row['itemID'];
+        $text = $row['itemdata'];
 
-        echo '<div id="'.$id.'" class="divBlock ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"  style=" left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
-        draggable="true"></div>';
-    }-->
+        echo '<div id="'.$id.'" class="divBlock text ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable" contenteditable="true" style="position: absolute; left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
+        draggable="true">'.$text.'</div>';
+    } ?>
 
 
   </div>
