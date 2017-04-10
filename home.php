@@ -36,6 +36,7 @@ $lastID = $stmt->fetchColumn();
     <link href="css/style.min.css" rel="stylesheet" media="screen">
     <link rel="icon" href="images/favicon.png" type="image/png" style="width: 16px; height: 16px;">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +45,7 @@ $lastID = $stmt->fetchColumn();
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://use.fontawesome.com/3ba87a9b25.js"></script>
-  
+
   </head>
   <body>
   <nav class="navbar navbar-default">
@@ -88,13 +89,33 @@ $lastID = $stmt->fetchColumn();
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h3 class="modal-title">About</h3>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <h1>Edit wireframes with ease</h1>
+          <hr>
+          <section class="infoSection">
+            <h4>Minimalistic design</h4>
+            <p>By combining design with simplicity the user can find everything without trouble and focus on wireframing</p>
+          </section>
+          <hr>
+          <section class="infoSection">
+            <h4>Drag n drop</h4>
+            <p>EdgeFrame has two main functionalities - resizing and drag and drop - to add a block to the canvas simply choose a block and drag it in.</p>
+              <br><hr class="separator"><br>
+              <p>Now you can move your block around and even change the size. You can also add textblocks and change default text.</p>
+              <br><hr class="separator"><br>
+              <p>When you are done just press the save button or if you want to remove a block, simply drag it to the bin icon.</p>
+          </section>
+          <hr>
+          <section class="infoSection">
+            <h4>Why use EdgeFrame?</h4>
+            <p>EdgeFrame is not for people that want advanced wireframes, it is for those who want build a quick wireframe with no time at all</p>
+              <br><hr class="separator"><br>
+              <p>For those who can't pay the prices that advanced editors offer or if you simply don't know where to start EdgeFrame is the perfect choice.</p>
+              <br><hr class="separator"><br>
+              <p>It's simpel, free, and easy to use.</p>
+          </section>
         </div>
       </div>
 
