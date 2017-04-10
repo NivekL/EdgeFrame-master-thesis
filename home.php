@@ -15,7 +15,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 
-// hämta senaste ID from DB och spara i JS varaiabel (längre ner)
+// hämta senaste ID from DB och spara i JS variabel (längre ner)
 $sql = "SELECT itemID from pageitem order by itemID DESC";
 $stmt = $dbh->query($sql);
 $lastID = $stmt->fetchColumn();
@@ -44,11 +44,7 @@ $lastID = $stmt->fetchColumn();
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="https://use.fontawesome.com/3ba87a9b25.js"></script>
-    <script>
-
-    <?php echo 'var lastID = "'.$lastID.'";'; ?>
-
-    </script>
+  
   </head>
   <body>
   <nav class="navbar navbar-default">
@@ -67,6 +63,7 @@ $lastID = $stmt->fetchColumn();
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li><i id="trash" class="delete fa fa-trash-o fa-3x" aria-hidden="true"></i></li>
         <li id="saveCall"></li>
         <li><button id="saveBtn" class="default-btn btn save">Save</button></li>
         <li><a href="#" data-toggle="modal" data-target="#myModal">About</a></li>
@@ -110,10 +107,9 @@ $lastID = $stmt->fetchColumn();
 
   <div id="mid-div" class="col-xs-12 col-md-12 mid-col">
 
-
-
-  <?php  $sql = "SELECT * FROM dragndrop.pageitem";
+  <?php  $sql = "SELECT * FROM dragndrop.pageitem WHERE userID=:userID";
     $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':userID', $_SESSION['userSession']);
     $stmt->execute();
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -124,7 +120,9 @@ $lastID = $stmt->fetchColumn();
         $id = $row['itemID'];
         $text = $row['itemdata'];
 
-        echo '<div id="'.$id.'" class="divBlock text ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable" contenteditable="true" style="position: absolute; left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
+        echo '<div id="'.$id.'" class="divBlock text ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"
+        contenteditable="true"
+        style="position: absolute; left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
         draggable="true">'.$text.'</div>';
     } ?>
 

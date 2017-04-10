@@ -31,10 +31,6 @@ $( function() {
 
 //  var i = 0;
 
-var i = lastID.substring(7,9);
-i++;
-
-
     $( "#mid-div" ).droppable({
       accept: "#divBlock, #text",
       over: function(event, ui){
@@ -53,9 +49,8 @@ i++;
         .css("background-color", "#f6f6f6");
 
         var element = $(ui.helper).clone();
-        $(element).attr('id', 'dropped' + i);
+        $(element).attr('id', guid());
         $(element).addClass("dropped");
-        i++;
 
         $(this).append(element);
 
@@ -68,7 +63,35 @@ i++;
 
   }); // droppable function
 
+$("#trash").droppable({
+  over: function(event, ui){
+    $(ui.draggable)
+    .css("background-color", "#c9122c")
+    .css("opacity", "0.8")
+    .css("transition", "all 0.5");
+  },
+  out: function(event, ui){
+    $(ui.draggable)
+    .css("border", "1px solid #000")
+    .css("opacity", "1")
+    .css("background-color", "#37abff");
+  },
+  drop: function(event, ui) {
+      ui.draggable.remove();
+          var request = $.ajax({
+            url: "handleJsonData.php",
+            type: "DELETE",
+            data: id=ui.draggable[0].id
+          });
+            request.fail(function(err){
+              console.log("Item was not deleted" + err);
+            });
 
+            request.done(function(msg){
+              console.log("Item successfully deleted" + msg);
+            });
+        }
+});
 
 
   function sendData(JSONdata) {
@@ -81,8 +104,11 @@ i++;
       }
           xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
                   document.getElementById("saveCall").innerHTML = "Saved!";
                   setTimeout(function(){ $('#saveCall').fadeOut(1000); }, 2000);
+              } else {
+                console.log(this.responseText);
               }
           };
           xmlhttp.open("GET","handleJsonData.php?q="+JSONdata,true);
@@ -93,3 +119,13 @@ i++;
 
 $(".dropped").draggable();
 $(".dropped").resizable();
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
