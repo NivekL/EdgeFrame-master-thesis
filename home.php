@@ -74,7 +74,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <div id="sidepanel" class="sidenav">
 
   <div id="divBlock" class="divBlock" draggable="true"></div>
-  <p id="text" class="text" draggable="true" contenteditable="true">Sample text</p>
+  <p style="cursor: default;" id="text" class="text" draggable="true" contenteditable="true">Sample text</p>
 
 </div>
 
@@ -143,7 +143,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         echo '<div id="'.$id.'" class="divBlock text ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"
         contenteditable="true"
-        style="position: absolute; left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
+        style="cursor: default;position: absolute; left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
         draggable="true">'.$text.'</div>';
     } ?>
 
