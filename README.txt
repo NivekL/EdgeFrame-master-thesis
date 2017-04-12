@@ -1,3 +1,8 @@
+Tillagd funktion
+Preview:a rutor i en annan färg genom att dubbelklicka, färgen sparas när man uppdaterar sidan men det är meningen att man
+ska kunna förhandsgranska sin ruta i en annan färg
+
+
 Buggar att vara medveten om som jag inte lyckades hitta en lösning för:
 
 När man dragit in ett text block, trycker spara och laddar om sidan så kommer den få en blå bakgrund texten kommer även hoppa in lite grann

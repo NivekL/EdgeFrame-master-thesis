@@ -141,10 +141,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $id = $row['itemID'];
         $text = $row['itemdata'];
 
-        echo '<div id="'.$id.'" class="divBlock text ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"
-        contenteditable="true"
-        style="cursor: default;position: absolute; left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
-        draggable="true">'.$text.'</div>';
+          echo '<div id="'.$id.'" class="divBlock text ui-draggable ui-draggable-handle ui-draggable-dragging dropped ui-resizable"
+          contenteditable="true"
+          style="cursor: default;position: absolute; left:'.$x.'px; top:'.$y.'px; height:'.$height.'px; width:'.$width.'px;"
+          draggable="true">'.$text.'</div>';
     } ?>
 
 

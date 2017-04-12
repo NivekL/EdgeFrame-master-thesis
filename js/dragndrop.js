@@ -54,6 +54,10 @@ $( function() {
 
         console.log(element);
 
+        $(element).on("dblclick", function(){
+          $(this).toggleClass("gray");
+        });
+
         $(element).draggable();
         $(element).resizable();
 
@@ -66,14 +70,11 @@ $( function() {
 $("#trash").droppable({
   over: function(event, ui){
     $(ui.draggable)
-    .css("background-color", "#c9122c")
-    .css("opacity", "0.8");
+    .css("opacity", "0.5");
   },
   out: function(event, ui){
     $(ui.draggable)
-    .css("border", "1px solid #000")
-    .css("opacity", "1")
-    .css("background-color", "#37abff");
+    .css("opacity", "1");
   },
   drop: function(event, ui) {
       ui.draggable.remove();
@@ -119,7 +120,9 @@ $("#trash").droppable({
 }); //document function
 
 // call jQueryUI function again after page refresh
-$(".dropped").draggable();
+$(".dropped").draggable().on("dblclick", function(){
+  $(this).toggleClass("gray");
+});
 $(".dropped").resizable();
 
 // generate cryptic id for userID
