@@ -11,7 +11,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 {
 	$id = base64_decode($_GET['id']);
 	$code = $_GET['code'];
-
+	// SELECT USER
 	$stmt = $user->runQuery("SELECT * FROM tbl_users WHERE userID=:uid AND tokenCode=:token");
 	$stmt->execute(array(":uid"=>$id,":token"=>$code));
 	$rows = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -32,6 +32,8 @@ if(isset($_GET['id']) && isset($_GET['code']))
 			}
 			else
 			{
+				// UPDATE USER PASS
+
 				$password = md5($cpass);
 				$stmt = $user->runQuery("UPDATE tbl_users SET userPass=:upass WHERE userID=:uid");
 				$stmt->execute(array(":upass"=>$password,":uid"=>$rows['userID']));

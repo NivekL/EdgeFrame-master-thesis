@@ -2,6 +2,10 @@
 session_start();
 require_once 'class.user.php';
 require 'dbcon.php';
+
+// CHECKING TO SEE IF USER IS LOGGED IN
+// IF USER IS NOT LOGGED, REDIRECTED
+
 $user_home = new USER();
 
 if(!$user_home->is_logged_in())
@@ -12,13 +16,6 @@ if(!$user_home->is_logged_in())
 $stmt = $user_home->runQuery("SELECT * FROM tbl_users WHERE userID=:uid");
 $stmt->execute(array(":uid"=>$_SESSION['userSession']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
-
-// hämta senaste ID from DB och spara i JS variabel (längre ner)
-$sql = "SELECT itemID from pageitem order by itemID DESC";
-$stmt = $dbh->query($sql);
-$lastID = $stmt->fetchColumn();
 
 ?>
 
@@ -128,7 +125,10 @@ $lastID = $stmt->fetchColumn();
 
   <div id="mid-div" class="col-xs-12 col-md-12 mid-col">
 
-  <?php  $sql = "SELECT * FROM dragndrop.pageitem WHERE userID=:userID";
+  <?php
+    // DISPLAYING DATA BASED ON USERID
+
+    $sql = "SELECT * FROM dragndrop.pageitem WHERE userID=:userID";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':userID', $_SESSION['userSession']);
     $stmt->execute();

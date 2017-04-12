@@ -16,7 +16,7 @@ if(isset($_POST['btn-signup']))
  $email = trim($_POST['txtemail']);
  $upass = trim($_POST['txtpass']);
  $code = md5(uniqid(rand()));
-
+// Check if email is in DB
  $stmt = $reg_user->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
  $stmt->execute(array(":email_id"=>$email));
  $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -32,6 +32,7 @@ if(isset($_POST['btn-signup']))
  }
  else
  {
+   // Proceed with registration
   if($reg_user->register($uname,$email,$upass,$code))
   {
    $id = $reg_user->lasdID();

@@ -2,7 +2,7 @@
 session_start();
 require_once 'class.user.php';
 $user_login = new USER();
-
+// check if user logged in
 if($user_login->is_logged_in()!="")
 {
  $user_login->redirect('home.php');
@@ -39,6 +39,7 @@ if(isset($_POST['btn-login']))
   <body id="login">
     <div class="container">
   <?php
+  // if account is not verified, not able to login
   if(isset($_GET['inactive']))
   {
    ?>
@@ -51,6 +52,7 @@ if(isset($_POST['btn-login']))
   ?>
         <form class="form-signin" method="post">
         <?php
+        // if user typed wrong details
         if(isset($_GET['error']))
   {
    ?>

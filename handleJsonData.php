@@ -2,21 +2,22 @@
 session_start();
 require "dbcon.php";
 try {
+// fetching json string from ajax request and decodes it
 if ($_GET['q']) {
-//file_put_contents("log.txt", print_r($_GET['q'], true));
 $dataFromJSON = json_decode($_GET['q']);
-//file_put_contents("log2.txt", print_r($dataFromJSON, true));
 
-// Kolla om itemID finns i DB
+// Check if itemID is in DB
 
 $countSql = "SELECT COUNT(*) FROM pageitem WHERE itemID = :itemID";
 
 $countStmt = $dbh->prepare($countSql);
 $countStmt->bindParam(':itemID', $id);
 
+// INSERT!
+
 $sql = "INSERT INTO `dragndrop`.`pageitem` (`itemID`, `itemdata`, `xPos`, `yPos`, `itemHeight`, `itemWidth`, `userID`)
 VALUES (:id, :content, :xpos, :ypos, :height, :width, :userID)";
-// ON DUPLICATE KEY UPDATE (`itemID` = `itemID` + 1)";
+
 $stmt = $dbh->prepare($sql);
 
 foreach ($dataFromJSON as $element) {
@@ -34,29 +35,26 @@ foreach ($dataFromJSON as $element) {
 $countStmt->execute();
 $rowCount = $countStmt->fetchColumn();
 
-// $rowCount = 0;
-//  var_dump($rowCount);
-
   if ($rowCount > 0) {
 
     // UPDATE!
 
-    $insertSql = "UPDATE `dragndrop`.`pageitem` SET `xPos` = :xpos, `yPos` = :ypos, `itemHeight` = :height, `itemWidth` = :width, `itemdata` = :content WHERE `itemID` = :id";
+    $updateSql = "UPDATE `dragndrop`.`pageitem` SET `xPos` = :xpos, `yPos` = :ypos, `itemHeight` = :height, `itemWidth` = :width, `itemdata` = :content WHERE `itemID` = :id";
 
-    $insertStmt = $dbh->prepare($insertSql);
+    $updateStmt = $dbh->prepare($updateSql);
 
-    $insertStmt->bindParam(':id', $id);
-    $insertStmt->bindParam(':xpos', $xPosition);
-    $insertStmt->bindParam(':ypos', $yPosition);
-    $insertStmt->bindParam(':height', $height);
-    $insertStmt->bindParam(':width', $width);
-    $insertStmt->bindParam(':content', $content);
+    $updateStmt->bindParam(':id', $id);
+    $updateStmt->bindParam(':xpos', $xPosition);
+    $updateStmt->bindParam(':ypos', $yPosition);
+    $updateStmt->bindParam(':height', $height);
+    $updateStmt->bindParam(':width', $width);
+    $updateStmt->bindParam(':content', $content);
 
-    $insertStmt->execute();
+    $updateStmt->execute();
 
   } else {
 
-    // Insert!
+    // INSERT!
 
     $stmt->bindParam(':id', $id);
     $stmt->bindParam(':content', $content);
@@ -71,9 +69,10 @@ $rowCount = $countStmt->fetchColumn();
 }
 
 } else {
+
+// DELETE!
+
 $itemID = file_get_contents("php://input");
-
-
 
 $deleteFromSql = "DELETE FROM `dragndrop`.`pageitem` WHERE `itemID`= :id";
 
@@ -84,6 +83,7 @@ $deleteStmt->execute();
 
 }
 
+//Error handling
 } catch (Exception $e) {
   print "something went wrong\n ". $e;
 } finally {

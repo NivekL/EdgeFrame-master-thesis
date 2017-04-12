@@ -6,7 +6,7 @@ if(empty($_GET['id']) && empty($_GET['code']))
 {
  $user->redirect('index.php');
 }
-
+// Verify account //
 if(isset($_GET['id']) && isset($_GET['code']))
 {
  $id = base64_decode($_GET['id']);
@@ -14,7 +14,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 
  $statusY = "Y";
  $statusN = "N";
-
+// Select registered user from DB
  $stmt = $user->runQuery("SELECT userID,userStatus FROM tbl_users WHERE userID=:uID AND tokenCode=:code LIMIT 1");
  $stmt->execute(array(":uID"=>$id,":code"=>$code));
  $row=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -22,6 +22,8 @@ if(isset($_GET['id']) && isset($_GET['code']))
  {
   if($row['userStatus']==$statusN)
   {
+    // Update status
+
    $stmt = $user->runQuery("UPDATE tbl_users SET userStatus=:status WHERE userID=:uID");
    $stmt->bindparam(":status",$statusY);
    $stmt->bindparam(":uID",$id);

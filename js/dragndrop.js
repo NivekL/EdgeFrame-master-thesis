@@ -1,9 +1,10 @@
 $( function() {
-
+// function for saving draggable when save button is clicked
   $("#saveBtn").on('click', function(event) {
     var allDroppedElems = document.getElementsByClassName('dropped');
     var toBeJSON = [];
 
+    //Loop through the objects and place the data in an array
     for (var i = 0; i < allDroppedElems.length; i++) {
 
         toBeJSON.push([allDroppedElems[i].id, allDroppedElems[i].innerText, allDroppedElems[i].offsetLeft, allDroppedElems[i].offsetTop, allDroppedElems[i].offsetHeight, allDroppedElems[i].offsetWidth]);
@@ -12,25 +13,21 @@ $( function() {
 
     }
 
+    // convert array to string
     var jsonData = JSON.stringify(toBeJSON);
 
 
     sendData(jsonData);
   });
 
+// HERE STARTS jQueryUI DRAG N DROP FUNCTIONS //
 
-
-
-
+  // original element
   $( "#divBlock, #text" ).draggable({
     helper: 'clone'
   }); // draggable function
 
-
-// i ska vara lika med siffran från lastID!
-
-//  var i = 0;
-
+  // dropzone
     $( "#mid-div" ).droppable({
       accept: "#divBlock, #text",
       over: function(event, ui){
@@ -48,6 +45,7 @@ $( function() {
         .css("border", "1px solid #cdc8c8")
         .css("background-color", "#f6f6f6");
 
+        // clone of original element
         var element = $(ui.helper).clone();
         $(element).attr('id', guid());
         $(element).addClass("dropped");
@@ -63,12 +61,13 @@ $( function() {
 
   }); // droppable function
 
+// HERE STARTS jQueryUI FUNCTIONS FOR DELETING BLOCK //
+
 $("#trash").droppable({
   over: function(event, ui){
     $(ui.draggable)
     .css("background-color", "#c9122c")
-    .css("opacity", "0.8")
-    .css("transition", "all 0.5");
+    .css("opacity", "0.8");
   },
   out: function(event, ui){
     $(ui.draggable)
@@ -93,7 +92,9 @@ $("#trash").droppable({
         }
 });
 
+// HERE STARTS AJAX REQUEST //
 
+// send stringified data to server with ajax
   function sendData(JSONdata) {
       if (window.XMLHttpRequest) {
               // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -101,7 +102,7 @@ $("#trash").droppable({
       } else {
               // code for IE6, IE5
               xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
+      }     // If all is good send data to handleJsonData.php
           xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
                 console.log(this.responseText);
@@ -117,9 +118,11 @@ $("#trash").droppable({
 
 }); //document function
 
+// call jQueryUI function again after page refresh
 $(".dropped").draggable();
 $(".dropped").resizable();
 
+// generate cryptic id for userID
 function guid() {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)

@@ -2,7 +2,7 @@
 session_start();
 require_once 'class.user.php';
 $user = new USER();
-
+// check if user logged in
 if($user->is_logged_in()!="")
 {
  $user->redirect('home.php');
@@ -11,7 +11,7 @@ if($user->is_logged_in()!="")
 if(isset($_POST['btn-submit']))
 {
  $email = $_POST['txtemail'];
-
+ // select userid and send reset pass mail to that user
  $stmt = $user->runQuery("SELECT userID FROM tbl_users WHERE userEmail=:email LIMIT 1");
  $stmt->execute(array(":email"=>$email));
  $row = $stmt->fetch(PDO::FETCH_ASSOC);
