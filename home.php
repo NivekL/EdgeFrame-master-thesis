@@ -103,6 +103,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
               <p>Now you can move your block around and even change the size. You can also add textblocks and change default text.</p>
               <br><hr class="separator"><br>
               <p>When you are done just press the save button or if you want to remove a block, simply drag it to the bin icon.</p>
+              <br><hr class="separator"><br>
+              <p>You can preview a block in a different color by double clicking it</p>
           </section>
           <hr>
           <section class="infoSection">
